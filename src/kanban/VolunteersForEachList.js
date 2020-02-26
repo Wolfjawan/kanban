@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import VolunteerCard from "./VolunteerCard";
 const findVolunteers = (list, volunteers) => {
+  // console.log(list.volunteersId.length);
   const newVolunteers =
     list.volunteersId &&
     list.volunteersId.length > 0 &&
@@ -21,6 +22,9 @@ class VolunteersForEachList extends Component {
       onVolunteerDragEnd
     } = this.props;
     const volunteersForAList = findVolunteers(list, volunteers);
+    const fakeV = {
+      _id: null
+    };
     return (
       <Fragment>
         {volunteersForAList.length > 0 ? (
@@ -48,7 +52,10 @@ class VolunteersForEachList extends Component {
           <VolunteerCard
             key={`${list._id}_0`}
             listId={list._id}
+            listName={list.name}
+            volunteersForAList={volunteersForAList}
             volunteerIndex={0}
+            volunteer={fakeV}
             draggable={false}
             onVolunteerMove={onVolunteerMove}
             onSetVolunteerTargetOption={onSetVolunteerTargetOption}

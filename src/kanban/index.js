@@ -62,6 +62,19 @@ class Kanban extends Component {
     volunteersForAList,
     listName
   ) => {
+    console.log(
+      "hoveredId",
+      hoveredId,
+      "hoveredVolunteerIndex",
+      hoveredVolunteerIndex,
+      "listId",
+      listId,
+      "volunteersForAList",
+      volunteersForAList,
+      "listName",
+      listName
+    );
+
     e.preventDefault();
     const { targetVolunteer, volunteerTargetId } = this.state;
     if (targetVolunteer === "card") {
@@ -84,36 +97,38 @@ class Kanban extends Component {
     if (targetVolunteersForAList) {
       console.log(volunteerTargetId);
       //update volunteer
+      let pos;
+
       targetVolunteersForAList.forEach((volunteer, index) => {
         if (volunteer._id === hoveredVolunteerId) {
-          const pos = creatNewVolunteerPos(
+          pos = creatNewVolunteerPos(
             targetVolunteersForAList,
             index,
             volunteerTargetId
           );
-          if (pos) {
-            console.log(volunteerTargetId, {
-              pos,
-              listId: hoveredListId,
-              volunteerStatus: targetListName
-            });
-            // this.props.onReorderVolunteer(volunteerTargetId, {
-            //   pos,
-            //   listId: hoveredListId,
-            //   volunteerStatus: targetListName
-            // });
-          } else {
-            console.log(volunteerTargetId, {
-              listId: hoveredListId,
-              volunteerStatus: targetListName
-            });
-            // this.props.onReorderVolunteer(volunteerTargetId, {
-            //   listId: hoveredListId,
-            //   volunteerStatus: targetListName
-            // });
-          }
         }
       });
+      if (pos) {
+        console.log(volunteerTargetId, {
+          pos,
+          listId: hoveredListId,
+          volunteerStatus: targetListName
+        });
+        // this.props.onReorderVolunteer(volunteerTargetId, {
+        //   pos,
+        //   listId: hoveredListId,
+        //   volunteerStatus: targetListName
+        // });
+      } else {
+        console.log(volunteerTargetId, {
+          listId: hoveredListId,
+          volunteerStatus: targetListName
+        });
+        // this.props.onReorderVolunteer(volunteerTargetId, {
+        //   listId: hoveredListId,
+        //   volunteerStatus: targetListName
+        // });
+      }
     }
     this.setState({
       volunteerTargetId: null,

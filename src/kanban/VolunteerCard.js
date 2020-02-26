@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class VolunteerCard extends Component {
-  state = { draggableVolunteer: false }
+  state = { draggableVolunteer: false };
   render() {
     const {
       draggable,
@@ -15,8 +15,8 @@ class VolunteerCard extends Component {
       volunteerTargetId,
       volunteersForAList,
       listName
-    } = this.props
-    const { draggableVolunteer } = this.state
+    } = this.props;
+    const { draggableVolunteer } = this.state;
     return (
       <div
         style={
@@ -26,45 +26,44 @@ class VolunteerCard extends Component {
               }
             : {}
         }
-        className={`card-body ${draggable ? '' : 'card-spacer'}`}
+        className={`card-body ${draggable ? "" : "card-spacer"}`}
         id="card"
         draggable={draggableVolunteer && draggable}
         onDragStart={e => {
-          onSetVolunteerTargetOption(e, volunteer._id)
+          onSetVolunteerTargetOption(e, volunteer._id);
         }}
-        onDragEnterCapture={e => {
-          // debugger
-          targetVolunteer === 'card' &&
+        onDragOver={e => {
+          volunteer &&
+            volunteer._id !== volunteerTargetId &&
+            targetVolunteer === "card" &&
             onVolunteerMove(
               e,
-              volunteer ? volunteer._id : volunteerTargetId,
+              volunteer && volunteer._id ? volunteer._id : volunteerTargetId,
               volunteerIndex,
               listId,
               volunteersForAList,
               listName
-            )
+            );
         }}
         onDragEnd={() => {
-          onVolunteerDragEnd()
+          onVolunteerDragEnd();
         }}
       >
         <span
           className="card-destination"
           onMouseDown={() => this.setState({ draggableVolunteer: true })}
           onMouseUp={() => {
-            this.setState({ draggableVolunteer: false })
+            this.setState({ draggableVolunteer: false });
           }}
         />
         {volunteer && (
-          <span
-            className="card-destination-title"
-          >
+          <span className="card-destination-title">
             {volunteer.firstName} {volunteer.lastName}
           </span>
         )}
       </div>
-    )
+    );
   }
 }
 
-export default VolunteerCard
+export default VolunteerCard;

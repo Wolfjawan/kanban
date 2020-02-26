@@ -4,91 +4,88 @@
       "_id": "5d81461f203f876501d801671",
       "firstName": "Mohsen",
       "lastName": "Moradi",
-      "listId": "5e4be0024f1c686bf9885c14",
+      "listId": "1",
       "pos": 2810258296674313
     },
     {
       "_id": "5d81461f203f87775454hkguf",
       "firstName": "Daleel",
       "lastName": "Ahmadi",
-      "listId": "5e4be0024f1c686bf9885c14",
+      "listId": "1",
       "pos": 281025829674313
     },
     {
       "_id": "5d81461sjhj336501d801671",
       "firstName": "Mohammad",
       "lastName": "Amini",
-      "listId": "5e4be0024f1c686bf9885c14",
+      "listId": "1",
       "pos": 281025829643133
     },
     {
       "_id": "5d814690897kmk6501d801671",
       "firstName": "Ahmad",
       "lastName": "Ahmadi",
-      "listId": "5e4be1559de2a8038d65d729",
+      "listId": "3",
       "pos": 28102582943132
     },
     {
       "_id": "5d814690897sdnk6501d801671",
       "firstName": "Dan",
       "lastName": "Ahmadi",
-      "listId": "5e4be1559de2a8038d65d729",
+      "listId": "3",
       "pos": 28102582943137
     },
     {
       "_id": "5d814690897sdnmk6501d801671",
       "firstName": "John",
       "lastName": "Ahmadi",
-      "listId": "5e4be1559de2a8038d65d729",
+      "listId": "3",
       "pos": 28102582943139876
     },
     {
       "_id": "5d814690897sdnkmk65801671",
       "firstName": "German",
       "lastName": "Ahmadi",
-      "listId": "5e4be1559de2a8038d65d729",
+      "listId": "3",
       "pos": 28102582943133323
     },
     {
       "_id": "5d814690897sdnkmk6501d801671",
       "firstName": "Dan",
       "lastName": "Ahmadi",
-      "listId": "5e4be01d4f1c686bf9885c15",
+      "listId": "2",
       "pos": 28102582943137
     },
     {
       "_id": "5d814690897sdnkmk6580161",
       "firstName": "John",
       "lastName": "Ahmadi",
-      "listId": "5e4be01d4f1c686bf9885c15",
+      "listId": "2",
       "pos": 28102582943139876
     },
     {
       "_id": "5d814690897sdnkmk6801671",
       "firstName": "German",
       "lastName": "Ahmadi",
-      "listId": "5e4be01d4f1c686bf9885c15",
+      "listId": "2",
       "pos": 28102582943133323
     }
   ],
   "lists": [
     {
-      "_id": "5e4be0024f1c686bf9885c14",
+      "_id": "1",
       "name": "NEW",
-      "pos": 9419297855.619709,
-      "category": "volunteers"
+      "pos": 9419297855.619709
     },
     {
-      "_id": "5e4be01d4f1c686bf9885c15",
+      "_id": "2",
       "name": "ACTIVE",
-      "pos": 9419358421.737192,
-      "category": "volunteers"
+      "pos": 9419358421.737192
     },
     {
-      "_id": "5e4be1559de2a8038d65d729",
+      "_id": "3",
       "name": "INACTIVE",
-      "pos": 9419300650.443146,
-      "category": "volunteers"
+      "pos": 9419300650.443146
     }
   ]
 }
