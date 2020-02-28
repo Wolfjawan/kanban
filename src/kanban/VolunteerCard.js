@@ -18,7 +18,7 @@ class VolunteerCard extends Component {
     } = this.props;
     const { draggableVolunteer } = this.state;
     return (
-      <div
+      <span
         style={
           volunteer && volunteer._id === volunteerTargetId
             ? {
@@ -47,21 +47,19 @@ class VolunteerCard extends Component {
         }}
         onDragEnd={() => {
           onVolunteerDragEnd();
+          this.setState({ draggableVolunteer: false });
         }}
       >
         <span
           className="card-destination"
           onMouseDown={() => this.setState({ draggableVolunteer: true })}
-          onMouseUp={() => {
-            this.setState({ draggableVolunteer: false });
-          }}
         />
         {volunteer && (
           <span className="card-destination-title">
             {volunteer.firstName} {volunteer.lastName}
           </span>
         )}
-      </div>
+      </span>
     );
   }
 }

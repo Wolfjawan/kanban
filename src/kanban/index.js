@@ -20,7 +20,6 @@ class Kanban extends Component {
     targetVolunteer: "",
     listTargetId: null,
     listTarget: "",
-    pListIndex: null,
     showVolunteerDetail: false,
     volunteer: {}
   };
@@ -28,16 +27,17 @@ class Kanban extends Component {
     this.props.loadLists();
     this.props.loadVolunteers();
   }
-  onSetListTargetOption = (e, listTargetId, pListIndex) => {
+  onSetListTargetOption = (e, listTargetId) => {
     const target = e.target;
-    this.setState({
-      listTargetId,
-      listTarget: target.id,
-      pListIndex
-    });
-    setTimeout(function() {
-      target.style.opacity = "0.3";
-    }, 1);
+    if (target.id === "list") {
+      this.setState({
+        listTargetId,
+        listTarget: target.id
+      });
+      setTimeout(function() {
+        target.style.opacity = "0.3";
+      }, 1);
+    }
   };
   onListMove = index => {
     const { listTarget, listTargetId } = this.state;
@@ -48,10 +48,12 @@ class Kanban extends Component {
 
   onSetVolunteerTargetOption = (e, volunteerTargetId) => {
     const target = e.target;
-    this.setState({
-      volunteerTargetId,
-      targetVolunteer: target.id
-    });
+    e.dataTransfer.setData("text/plain", volunteerTargetId);
+    if (target.id === "card")
+      this.setState({
+        volunteerTargetId,
+        targetVolunteer: target.id
+      });
   };
 
   onVolunteerMove = (
@@ -62,19 +64,6 @@ class Kanban extends Component {
     volunteersForAList,
     listName
   ) => {
-    console.log(
-      "hoveredId",
-      hoveredId,
-      "hoveredVolunteerIndex",
-      hoveredVolunteerIndex,
-      "listId",
-      listId,
-      "volunteersForAList",
-      volunteersForAList,
-      "listName",
-      listName
-    );
-
     e.preventDefault();
     const { targetVolunteer, volunteerTargetId } = this.state;
     if (targetVolunteer === "card") {
@@ -98,7 +87,6 @@ class Kanban extends Component {
       console.log(volunteerTargetId);
       //update volunteer
       let pos;
-
       targetVolunteersForAList.forEach((volunteer, index) => {
         if (volunteer._id === hoveredVolunteerId) {
           pos = creatNewVolunteerPos(
@@ -134,14 +122,13 @@ class Kanban extends Component {
       volunteerTargetId: null,
       targetVolunteer: "",
       listTargetId: null,
-      listTarget: "",
-      pListIndex: null
+      listTarget: ""
     });
   };
 
   onListDragEnd = (e, listId, listIndex) => {
-    const { listTarget, pListIndex } = this.state;
-    if (listTarget === "list" && listIndex !== pListIndex) {
+    const { listTarget } = this.state;
+    if (listTarget === "list") {
       //update lists
       const { lists } = this.props;
       const pos = creatNewPos(lists, listIndex);
@@ -156,8 +143,7 @@ class Kanban extends Component {
       volunteerTargetId: null,
       targetVolunteer: "",
       listTargetId: null,
-      listTarget: "",
-      pListIndex: null
+      listTarget: ""
     });
   };
 

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import VolunteerCard from "./VolunteerCard";
 const findVolunteers = (list, volunteers) => {
-  // console.log(list.volunteersId.length);
   const newVolunteers =
     list.volunteersId &&
     list.volunteersId.length > 0 &&
@@ -36,6 +35,7 @@ class VolunteersForEachList extends Component {
                   volunteersForAList={volunteersForAList}
                   volunteer={volunteer}
                   listId={list._id}
+                  listName={list.name}
                   volunteerIndex={volunteerIndex}
                   draggable={true}
                   onVolunteerMove={onVolunteerMove}
@@ -43,7 +43,6 @@ class VolunteersForEachList extends Component {
                   targetVolunteer={targetVolunteer}
                   volunteerTargetId={volunteerTargetId}
                   onVolunteerDragEnd={onVolunteerDragEnd}
-                  listName={list.name}
                 />
               );
             } else return null;
@@ -51,10 +50,10 @@ class VolunteersForEachList extends Component {
         ) : (
           <VolunteerCard
             key={`${list._id}_0`}
+            volunteerIndex={0}
             listId={list._id}
             listName={list.name}
             volunteersForAList={volunteersForAList}
-            volunteerIndex={0}
             volunteer={fakeV}
             draggable={false}
             onVolunteerMove={onVolunteerMove}
@@ -64,17 +63,6 @@ class VolunteersForEachList extends Component {
             onVolunteerDragEnd={onVolunteerDragEnd}
           />
         )}
-        {/* <VolunteerCard
-          key={`${list._id}_${volunteersForAList.length + 1}`}
-          listId={list._id}
-          volunteerIndex={volunteersForAList.length + 1}
-          draggable={false}
-          onVolunteerMove={onVolunteerMove}
-          onSetVolunteerTargetOption={onSetVolunteerTargetOption}
-          targetVolunteer={targetVolunteer}
-          volunteerTargetId={volunteerTargetId}
-          onVolunteerDragEnd={onVolunteerDragEnd}
-        /> */}
       </Fragment>
     );
   }

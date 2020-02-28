@@ -29,7 +29,7 @@ class List extends Component {
           style={{ opacity: listTargetId === _id && "0.3" }}
           id="list"
           draggable={draggableList && draggable}
-          onDragStart={e => onSetListTargetOption(e, _id, listIndex)}
+          onDragStart={e => onSetListTargetOption(e, _id)}
         >
           <div
             className="list-header"
